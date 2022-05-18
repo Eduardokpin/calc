@@ -33,32 +33,77 @@ $(document).on("click", ".add", function () {
   switch ($('select').val()) {
     case 'SAF':
     fx = 1500
+    fxa = 4
     if(parseInt($('#mudas').val())/parseFloat($('#area').val())>fx){
-      alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+      alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido: " + fx*parseFloat($('#area').val()));
       $('#mudas').addClass("error");
       empty = true;
       $('#mudas').val(fx*parseFloat($('#area').val()));
+    }
+    if(parseFloat($('#area').val())>fxa){
+      alert("Valor inválido ou acima do permitido em área.\nValor máximo permitido: " + fxa);
+      $('#area').addClass("error");
+      empty = true;
+      $('#area').val(fxa);
     }
    
     break;
     case 'FMA':
       fx = 1100
+      fxa = 2
       if(parseInt($('#mudas').val())/parseFloat($('#area').val())>fx){
-        alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+        alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido: " + fx*parseFloat($('#area').val()));
         $('#mudas').addClass("error");
         empty = true;
         $('#mudas').val(fx*parseFloat($('#area').val()));
+      }
+      if(parseFloat($('#area').val())>fxa){
+        alert("Valor inválido ou acima do permitido em área.\nValor máximo permitido: " + fxa);
+        $('#area').addClass("error");
+        empty = true;
+        $('#area').val(fxa);
       }
     break;
     case 'SSP':
       fx = 1500
+      fxa = 5
       if(parseInt($('#mudas').val())/parseFloat($('#area').val())>fx){
-        alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+        alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido: " + fx*parseFloat($('#area').val()));
         $('#mudas').addClass("error");
         empty = true;
         $('#mudas').val(fx*parseFloat($('#area').val()));
       }
+      if(parseFloat($('#area').val())>fxa){
+        alert("Valor inválido ou acima do permitido em área.\nValor máximo permitido: " + fxa);
+        $('#area').addClass("error");
+        empty = true;
+        $('#area').val(fxa);
+      }
     break;
+    case 'REC':
+      fxa = 6
+      if(parseFloat($('#area').val())>fxa){
+        alert("Valor inválido ou acima do permitido em área.\nValor máximo permitido: " + fxa);
+        $('#area').addClass("error");
+        empty = true;
+        $('#area').val(fxa);
+      }
+    case 'REG':
+      fxa = 10
+      if(parseFloat($('#area').val())>fxa){
+        alert("Valor inválido ou acima do permitido em área.\nValor máximo permitido: " + fxa);
+        $('#area').addClass("error");
+        empty = true;
+        $('#area').val(fxa);
+      }
+    case 'FPE':
+      fxa = 10
+      if(parseFloat($('#area').val())>fxa){
+        alert("Valor inválido ou acima do permitido em área.\nValor máximo permitido: " + fxa);
+        $('#area').addClass("error");
+        empty = true;
+        $('#area').val(fxa);
+      }
     default:
       break;
   }  
@@ -67,7 +112,7 @@ $(document).on("click", ".add", function () {
     case parseFloat($('#area').val())<=1:
       fx = 400
       if(parseFloat($('#cerca').val())>fx*parseFloat($('#area').val())){
-        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido: " + fx*parseFloat($('#area').val()));
         $('#cerca').addClass("error");
         empty = true;
         $('#cerca').val(fx*parseFloat($('#area').val()));
@@ -78,7 +123,7 @@ $(document).on("click", ".add", function () {
     case parseFloat($('#area').val())>1 && parseFloat($('#area').val())<=2:
       fx=300
       if(parseFloat($('#cerca').val())>fx*parseFloat($('#area').val())){
-        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido: " + fx*parseFloat($('#area').val()));
         $('#cerca').addClass("error");
         empty = true;
         $('#cerca').val(fx*parseFloat($('#area').val()));
@@ -89,7 +134,7 @@ $(document).on("click", ".add", function () {
     case parseFloat($('#area').val())>2 && parseFloat($('#area').val())<=3:
       fx=270
       if(parseFloat($('#cerca').val())>fx*parseFloat($('#area').val())){
-        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido: " + fx*parseFloat($('#area').val()));
         $('#cerca').addClass("error");
         empty = true;
         $('#cerca').val(fx*parseFloat($('#area').val()));
@@ -100,7 +145,7 @@ $(document).on("click", ".add", function () {
     case parseFloat($('#area').val())>3 && parseFloat($('#area').val())<4:
       fx=250
       if(parseFloat($('#cerca').val())>fx*parseFloat($('#area').val())){
-        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido: " + fx*parseFloat($('#area').val()));
         $('#cerca').addClass("error");
         empty = true;
         $('#cerca').val(fx*parseFloat($('#area').val()));
@@ -111,7 +156,7 @@ $(document).on("click", ".add", function () {
     case parseFloat($('#area').val())>=4:
       fx=220
       if(parseFloat($('#cerca').val())>fx*parseFloat($('#area').val())){
-        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+        alert("Valor inválido ou acima do permitido em cerca.\nValor máximo permitido: " + fx*parseFloat($('#area').val()));
         $('#cerca').addClass("error");
         empty = true;
         $('#cerca').val(fx*parseFloat($('#area').val()));
