@@ -17,19 +17,52 @@ $(document).on("click", ".add", function () {
     } else {
       $(this).removeClass("error");
     }
-  });
+  })
   var input = $(this).parents("tr").find('input[type="number"]');
   input.each(function () {
     if (!$(this).prop('disabled')){
-      if (!$(this).val() || parseInt($(this).val())>parseInt($(this).prop('max'))) {
+      if (!$(this).val()) {
         $(this).addClass("error");
-        alert("Valor inválido ou acima do permitido em: " + $(this).prop('name') + ".\nValor máximo permitido: " + $(this).prop('max'));
-        $(this).val($(this).prop('max'));
         empty = true;
       } else {
         $(this).removeClass("error");
       }
     }
+  })
+ 
+  switch ($('select').val()) {
+    case 'SAF':
+    fx = 1500
+    if(parseInt($('#mudas').val())/parseFloat($('#area').val())>fx){
+      alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+      $('#mudas').addClass("error");
+      empty = true;
+      $('#mudas').val(fx*parseFloat($('#area').val()));
+    }
+   
+    break;
+    case 'FMA':
+      fx = 1100
+      if(parseInt($('#mudas').val())/parseFloat($('#area').val())>fx){
+        alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+        $('#mudas').addClass("error");
+        empty = true;
+        $('#mudas').val(fx*parseFloat($('#area').val()));
+      }
+    break;
+    case 'SSP':
+      fx = 1500
+      if(parseInt($('#mudas').val())/parseFloat($('#area').val())>fx){
+        alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido:" + fx*parseFloat($('#area').val()));
+        $('#mudas').addClass("error");
+        empty = true;
+        $('#mudas').val(fx*parseFloat($('#area').val()));
+      }
+    break;
+    default:
+      break;
+  }  
+
   switch (true) {
     case parseFloat($('#area').val())<=1:
       fx = 400
@@ -90,7 +123,7 @@ $(document).on("click", ".add", function () {
       break;
   }  
   
-  });
+
   $(this).parents("tr").find(".error").first().focus();
   if (!empty) {
     var index = $("table.result tbody tr:last-child").index();
@@ -236,6 +269,7 @@ $(document).on("click", ".add", function () {
     calcular();
   }
 });
+
 // Delete row on delete button click
 $(document).on("click", ".delete", function () {
   $(this).parents("tr").remove();
@@ -272,13 +306,11 @@ $(document).on("change",'select', function(){
       $('input').prop('disabled',true)
       break;
     case 'SAF':
-      $('#mudas').prop('max','1500');
       $('input').prop('disabled',false);
       $('input').val('');
       break;
     case 'FMA':
       $('input').prop('disabled',false);
-      $('#mudas').prop('max',1100);
       $('input').val('');
       break;
     case 'SSP':      
@@ -288,7 +320,6 @@ $(document).on("change",'select', function(){
       break;
     case 'REC':
       $('input').prop('disabled',false);
-      $('#mudas').prop('max',1500);
       $('input').val('');
       break;
     case 'REG':
