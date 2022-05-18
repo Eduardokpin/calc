@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculadora Reflorestar</title>
+    <link rel="stylesheet" href="./pacotes/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./pacotes/reflorestar.css">
+    <script src="./pacotes/jquery/jquery.js"></script>
+    <script src="./pacotes/bootstrap/bootstrap.min.js"></script>
+    <script src="./pacotes/reflorestar.js"></script>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="table-wrapper">
+            <!-- <img src="./pacotes/imgs/.png">
+            <img src="./pacotes/imgs/.jpg"> -->
+                 
+            <div class="table-title">
+                <h2>Calculadora de Projetos</h2> 
+            </div>
+            <div class="table-title">
+                <table class="insert table-bordered">
+                    <thead>
+                        <tr class="cab">
+                            <th>Modalidade</th>
+                            <th>Área (ha)</th>
+                            <th>Mudas (un)</th>
+                            <th>Herbicidas</th>
+                            <th>Cerca (m)</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <select name="modalidade">
+                                    <option value="" selected disabled hidden>Escolha</option>
+                                    <option value="FMA">FMA</option>
+                                    <option value="FPE">FPE</option>
+                                    <option value="REC">REC</option>
+                                    <option value="SAF">SAF</option>
+                                    <option value="REG">REG</option>                                   
+                                    <option value="SSP">SSP</option>                      
+                                </select>
+                            </th>
+                            <th><input type="number" class="form-control" name="area" id='area' min='0' max ='NaN' step='.1' disabled></th>
+                            <th><input type="number" class="form-control" name="mudas" id='mudas' min='0' max ='NaN' step='100' disabled></th>
+                            <th><input type="checkbox" id='herbicidas' name='herbicidas' disabled> <label for='herbicidas'>Incluir</label></th>
+                            <th><input type="number" class="form-control" name="cerca" id='cerca' min='0' max ='NaN' step='100' disabled></th>
+                            <th><a class="add" title="Adicionar" data-toggle="tooltip"><img id="add" src="./pacotes/imgs/add.svg"></a></th>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+
+            <table class="result table-bordered">
+                <thead>
+                    <tr class="cab">
+                        <th>Modalidade com descrição</th>
+                        <th>Total</th>
+                        <th>Ano 1</th>
+                        <th>Ano 2</th>
+                        <th>Ano 3</th>
+                        <th>Ano 4</th>
+                        <th>Ano 5</th>
+                        <th>Ação</th>
+                    </tr> 
+                </thead>
+                <tbody class="resultados">
+                </tbody>
+                <tfoot>
+                    <tr class="total">
+                        <th>Total</th>
+                        <th class="ano0">R$ 00,00</th>
+                        <th class="ano1">R$ 00,00</th>
+                        <th class="ano2">R$ 00,00</th> 
+                        <th class="ano3">R$ 00,00</th> 
+                        <th class="ano4">R$ 00,00</th> 
+                        <th class="ano5">R$ 00,00</th>
+                        <th></th>
+                        </th>  
+                     </tr>
+                </tfoot>
+            </table>
+            <p>Atenção: Os valores calculados são aproximados, não refletem necessariamente os valores reais do programa.</p>
+            <p class="print"><a title="Imprimir"><img src="./pacotes/imgs/print.svg"></a>Imprimir</p>
+        </div>
+    </div>
+</body>
+<footer>
+    <p>Desenvolvido por Igor Ofrante e Eduardo Kuster</p>
+    <p>2022</p>
+</footer>
+
+</html>
