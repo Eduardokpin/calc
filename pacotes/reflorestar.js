@@ -81,7 +81,14 @@ $(document).on("click", ".add", function () {
       }
     break;
     case 'REC':
+      fx = 1667
       fxa = 6
+      if(parseInt($('#mudas').val())/parseFloat($('#area').val())>fx){
+        alert("Valor inválido ou acima do permitido em mudas.\nValor máximo permitido: " + fx*parseFloat($('#area').val()));
+        $('#mudas').addClass("error");
+        empty = true;
+        $('#mudas').val(fx*parseFloat($('#area').val()));
+      }
       if(parseFloat($('#area').val())>fxa){
         alert("Valor inválido ou acima do permitido em área.\nValor máximo permitido: " + fxa);
         $('#area').addClass("error");
